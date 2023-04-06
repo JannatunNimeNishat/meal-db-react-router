@@ -7,6 +7,9 @@ import Home from './components/Home'
 import Orders from './components/Orders'
 import SignUp from './components/SignUp'
 import ErrorPage from './components/ErrorPage'
+import Search from './components/Search'
+import Meals from './components/Meals'
+import mealLoader from './assets/MealLoader'
 
 const router = createBrowserRouter([
   {
@@ -15,12 +18,21 @@ const router = createBrowserRouter([
     errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
+        path:'/',
+        element:<Search></Search>
+      },
+      {
         path:'orders',
         element:<Orders></Orders>
       },
       {
         path:'signUp',
         element:<SignUp></SignUp>
+      },
+      {
+        path:'meals/:searchValue',
+        element:<Meals></Meals>,
+        loader:({params})=> mealLoader(params.searchValue)
       }
     ]
   }
