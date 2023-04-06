@@ -9,7 +9,8 @@ import SignUp from './components/SignUp'
 import ErrorPage from './components/ErrorPage'
 import Search from './components/Search'
 import Meals from './components/Meals'
-import mealLoader from './assets/MealLoader'
+import {  mealLoader, singleMealLoader } from './assets/MealLoader'
+import SingleMealDetail from './components/SingleMealDetail'
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
         path:'meals/:searchValue',
         element:<Meals></Meals>,
         loader:({params})=> mealLoader(params.searchValue)
+      },
+      {
+        path:'/singleMealDetails/:IdMeal', 
+        element:<SingleMealDetail></SingleMealDetail>,
+        loader:({params})=> singleMealLoader(params.IdMeal)
       }
     ]
   }

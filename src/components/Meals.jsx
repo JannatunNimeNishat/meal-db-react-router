@@ -4,7 +4,7 @@ import Meal from './Meal';
 
 const Meals = () => {
     const meals = useLoaderData()
-    // console.log(meals);
+  
     return (
         <div className='my-container mt-3'>
             <h3 className='text-2xl font-semibold text-center'>Your Favorite Food</h3>
